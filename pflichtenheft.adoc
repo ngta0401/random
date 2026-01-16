@@ -1213,5 +1213,73 @@ Stakeholder essenziell ist, sollten hier aufgeführt werden.
 Insbesondere Begriffe der zu implementierenden Domäne wurden bereits beschrieben, jedoch gibt es meist mehr Begriffe, die einer Beschreibung bedürfen. +
 Beispiel: Was bedeutet "Kunde"? Ein Nutzer des Systems? Der Kunde des Projektes (Auftraggeber)?
 
-== Offene Punkte
-Offene Punkte werden entweder direkt in der Spezifikation notiert. Wenn das Pflichtenheft zum finalen Review vorgelegt wird, sollte es keine offenen Punkte mehr geben.
+[options="header", cols="1, 4"]
+|===
+|Begriff |Beschreibung
+
+|**Abo-Modell (AboPlan)**
+|Das gewählte Abrechnungsintervall für eine Mitgliedschaft (z. B. monatlich oder jährlich). Beeinflusst die Abbuchung der Beiträge und die Vertragslaufzeit.
+
+|**Artikel (Item)**
+|Waren, die im Verkaufsbereich (Theke) angeboten werden (z. B. Getränke, Nahrungsergänzungsmittel). Sie besitzen Eigenschaften wie Bestand, Preis, Mindestmenge und ggf. ein Verfallsdatum.
+
+|**Chef (Inhaber)**
+|Der Auftraggeber und Administrator des Systems mit den höchsten Zugriffsrechten. Er verwaltet globale Einstellungen, Finanzen, Mitarbeiterdaten und das Inventar.
+
+|**Creator-Code**
+|Ein einzigartiger Code, der einem Mitglied zugeordnet ist. Er kann an Dritte weitergegeben werden, um diesen bei der Anmeldung einen Rabatt (Standard: 10%) zu gewähren. Dient der Mitgliederwerbung.
+
+|**Dienstplan (WorkSchedule)**
+|Die Gesamtheit aller Schichten einer Woche. Er regelt die Anwesenheit der Mitarbeiter unter Einhaltung der Besetzungsregeln.
+
+|**Frei-Monat**
+|Eine Option für Mitglieder, die Mitgliedschaft einmal pro Jahr für einen Monat ohne Angabe von Gründen auszusetzen. In diesem Zeitraum ruht die Beitragszahlung; die Vertragslaufzeit verlängert sich entsprechend.
+
+|**Gast (Guest)**
+|Ein nicht-registrierter Benutzer der Webseite oder Besucher des Studios, der noch keinen Mitgliedsvertrag abgeschlossen hat. Gäste können lediglich allgemeine Informationen sehen und Probetrainings vereinbaren.
+
+|**GuV**
+|Abkürzung für Gewinn- und Verlustrechnung. Eine statistische Übersicht für den Chef, die Einnahmen (Mitgliedsbeiträge, Verkäufe) und Ausgaben (Gehälter, Lagerkosten) gegenüberstellt.
+
+|**Kundenkonto (Account)**
+|Ein virtuelles, internes Konto für jedes Mitglied. Hier werden Guthaben (z. B. durch Neuwerbungsprämien oder Einzahlungen) gespeichert. Das Guthaben kann für Einkäufe an der Theke genutzt, aber nicht bar ausgezahlt werden.
+
+|**Mindestmenge (MinimumQuantity)**
+|Ein definierter Grenzwert für den Lagerbestand von Verkaufsartikeln. Wird dieser unterschritten, markiert das System den Artikel ("flagItem") für eine Nachbestellung.
+
+|**Mitglied (Member)**
+|Ein registrierter Kunde mit einem aktiven Vertrag. Mitglieder haben Zugang zum Mitgliederportal, können Trainingspläne einsehen und bargeldlos bezahlen.
+
+|**Neuwerbungsprämie (ReferralBonus)**
+|Ein monetärer Bonus, der einem Mitglied auf seinem Kundenkonto gutgeschrieben wird, wenn durch dessen Anwerbung (oft via Creator-Code) ein neues Mitglied gewonnen wurde.
+
+|**Probetraining (TrialTraining)**
+|Ein einmaliges, kostenloses Training für Gäste, das von einem Trainer betreut wird. Kann online oder vor Ort vereinbart werden.
+
+|**Putzkraft (Cleaner)**
+|Ein Mitarbeiter mit eingeschränkten Rechten, der für Reinigungsschichten (meist nach Ladenschluss) eingeteilt wird.
+
+|**Schicht (Shift)**
+|Ein definierter Zeitblock im Dienstplan. Es wird zwischen regulären Schichten, Eröffnungsschichten ("OpeningShift") und Abschlussschichten ("ClosingShift") unterschieden.
+
+|**SRS**
+|Software Requirement Specifications. Bezeichnet dieses Dokument (Pflichtenheft), das die Anforderungen an die zu entwickelnde Software beschreibt.
+
+|**Thekenkraft (CounterStaff)**
+|Ein Mitarbeiter, zuständig für den Verkaufsbereich, Check-In der Mitglieder und Inventarverwaltung.
+
+|**Trainer**
+|Ein Mitarbeiter, zuständig für die sportliche Betreuung. Erstellt Trainingspläne und führt Probetrainings durch.
+
+|**Trainingsplan (TrainingSchedule)**
+|Eine Zusammenstellung von Übungen, die individuell für ein Mitglied erstellt wird.
+
+|**Übung (Exercise)**
+|Eine spezifische sportliche Aktivität (z. B. "Bankdrücken"), die einer Muskelgruppe zugeordnet ist und als Baustein für Trainingspläne dient.
+
+|**Urlaubsantrag (VacationRequest)**
+|Ein formaler Antrag eines Mitarbeiters auf Abwesenheit, der vom Chef genehmigt oder abgelehnt werden muss.
+
+|**Verkaufsbereich (Counter)**
+|Der physische Bereich im Studio (Theke) sowie der digitale Bereich im System, in dem Waren verkauft und verwaltet werden.
+|===
