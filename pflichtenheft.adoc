@@ -1290,7 +1290,7 @@ Er hat vollen Zugriff auf das System (abhängig von seiner Rolle)
 |Erwartetes Resultat | Neue Trainings werden gepsichert und im Trainingsplan angezeigt 
 |===
 
-===
+|===
 |ID | **<<AT0300>>**
 |Use Case| **<<UC0300>>**
 |Vorbedingung| Ein als Chef oder Thekenkraft registrierter Nutzer ist angemeldet
@@ -1298,7 +1298,7 @@ Er hat vollen Zugriff auf das System (abhängig von seiner Rolle)
 |Erwartetes Resultat | Die neuen Artikel werden im Shop angezeigt 
 |===
 
-===
+|===
 |ID | **<<AT0310>>**
 |Use Case| **<<UC0310>>**
 |Vorbedingung| Ein als Mitglied/Gast registrierter Nutzer ist und nicht registrierte Nutzer 
@@ -1306,7 +1306,7 @@ Er hat vollen Zugriff auf das System (abhängig von seiner Rolle)
 |Erwartetes Resultat | Die neuen Artikel werden angezeigt  
 |===
 
-===
+|===
 |ID | **<<AT0320>>**
 |Use Case| **<<UC0320>>**
 |Vorbedingung| Ein als Mitglied registrierter Nutzer
