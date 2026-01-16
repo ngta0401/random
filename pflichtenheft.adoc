@@ -1535,7 +1535,6 @@ Einige Begriffe werden im Projektalltag selbstverständlich genutzt, können abe
 *Beispiel:* Der Begriff "Schicht" könnte von einem Mitarbeiter als "meine persönliche Arbeitszeit" verstanden werden. Im Systemkontext (und für den Chef) bezeichnet "Schicht" jedoch den gesamten Zeitblock im Dienstplan, der mit mehreren Personen besetzt ist.
 ====
 
-[options="header", cols="1, 4"]
 |===
 |Begriff |Erklärung / Fachliche Bedeutung
 
