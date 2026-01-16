@@ -1526,5 +1526,58 @@ Stakeholder essenziell ist, sollten hier aufgeführt werden.
 Insbesondere Begriffe der zu implementierenden Domäne wurden bereits beschrieben, jedoch gibt es meist mehr Begriffe, die einer Beschreibung bedürfen. +
 Beispiel: Was bedeutet "Kunde"? Ein Nutzer des Systems? Der Kunde des Projektes (Auftraggeber)?
 
+[options="header", cols="1, 4"]
+|===
+|Begriff |Erklärung
+
+|**Artikel (Item)**
+|Waren, die im Verkaufsbereich (Theke) angeboten werden (z. B. Getränke, Nahrungsergänzungsmittel, Zubehör). Sie besitzen Eigenschaften wie Bestand, Preis, Mindestmenge und ggf. ein Verfallsdatum.
+
+|**Chef (Inhaber)**
+|Der Auftraggeber und Administrator des Systems mit den höchsten Zugriffsrechten. Er verwaltet globale Einstellungen (Preise, Öffnungszeiten), Finanzen, Mitarbeiterdaten und das Inventar.
+
+|**Dienstplan (WorkSchedule)**
+|Ein Zeitplan, der regelt, wann welche Mitarbeiter (Trainer, Thekenkraft, Reinigungskraft) anwesend sein müssen. Validierungsregel: Mindestens 1 Trainer und 1 Thekenkraft während der Öffnungszeiten; Reinigungskraft 1h nach Schließung.
+
+|**Frei-Monat**
+|Eine Option für Mitglieder, die Mitgliedschaft einmal pro Jahr für einen Monat ohne Angabe von Gründen auszusetzen. In diesem Zeitraum ruht die Beitragszahlung, die Vertragslaufzeit verlängert sich entsprechend um einen Monat.
+
+|**Gast (Guest)**
+|Ein nicht-registrierter Benutzer der Webseite oder Besucher des Studios, der noch keinen Mitgliedsvertrag abgeschlossen hat. Gäste können lediglich allgemeine Informationen sehen und Probetrainings vereinbaren.
+
+|**GuV**
+|Abkürzung für Gewinn- und Verlustrechnung. Eine statistische Übersicht für den Chef, die Einnahmen (Mitgliedsbeiträge, Verkäufe) und Ausgaben (Gehälter, Lagerkosten) gegenüberstellt.
+
+|**Kundenkonto (Account)**
+|Ein virtuelles, internes Konto für jedes Mitglied. Hier werden Guthaben (z. B. durch Neuwerbungsprämien oder Einzahlungen via PayPal) gespeichert. Das Guthaben kann für Einkäufe an der Theke genutzt, aber nicht bar ausgezahlt werden.
+
+|**Mindestmenge (MinimumQuantity)**
+|Ein definierter Grenzwert für den Lagerbestand von Verkaufsartikeln. Wird dieser unterschritten, markiert das System den Artikel ("flagItem"), um eine Nachbestellung durch den Chef oder die Thekenkraft auszulösen.
+
+|**Mitglied (Member)**
+|Ein registrierter Kunde mit einem aktiven Vertrag. Mitglieder haben Zugang zum Mitgliederportal, können Trainingspläne einsehen, Guthaben aufladen und bargeldlos an der Theke bezahlen.
+
+|**Neuwerbungsprämie (ReferralBonus)**
+|Ein monetärer Bonus, der einem Mitglied auf seinem Kundenkonto gutgeschrieben wird, wenn dieses erfolgreich ein neues Mitglied anwirbt.
+
+|**Probetraining (TrialTraining)**
+|Ein einmaliges, kostenloses Training für Gäste (potenzielle Neukunden), das von einem Trainer betreut wird. Termine können online oder vor Ort vereinbart werden.
+
+|**Putzkraft (Cleaner)**
+|Ein Mitarbeiter, der eingeschränkte Zugriffsrechte auf das System hat (hauptsächlich Dienstplanansicht und Urlaubsanträge) und für die Reinigung außerhalb der Öffnungszeiten eingeteilt wird.
+
+|**SRS**
+|Software Requirement Specifications. Bezeichnet dieses Dokument (Pflichtenheft), das die Anforderungen an die zu entwickelnde Software beschreibt.
+
+|**Thekenkraft (CounterStaff)**
+|Ein Mitarbeiter, der primär für den Verkaufsbereich, den Check-In der Mitglieder und die Inventarverwaltung (Nachbestellungen, Artikelpflege) zuständig ist.
+
+|**Trainer**
+|Ein Mitarbeiter, der für die sportliche Betreuung zuständig ist. Er erstellt und bearbeitet individuelle Trainingspläne für Mitglieder und führt Probetrainings durch.
+
+|**Verkaufsbereich (Counter)**
+|Der physische Bereich im Studio (Theke) sowie der digitale Bereich im System, in dem Waren verkauft und verwaltet werden.
+|===
+
 == Offene Punkte
 Offene Punkte werden entweder direkt in der Spezifikation notiert. Wenn das Pflichtenheft zum finalen Review vorgelegt wird, sollte es keine offenen Punkte mehr geben.
