@@ -4,8 +4,6 @@
 :numbered:
 = Pflichtenheft __{ProFit_Webseite}__
 
-[options="header"]
-[cols="1, 1, 1, 1, 4"]
 |===
 |Version | Status      | Bearbeitungsdatum   | Autoren(en) |  Vermerk
 |0.1     | In Arbeit   | 10.10.2021          | Autor       | Initiale Version
@@ -23,9 +21,9 @@ Das Fitnessstudio ProFit ist ein mittelgroßes Fitnessstudio in dem Herzen von D
 Der Inhaber des Fitnessstudios (_Chef_) besitzt einen speziellen Login und ist für die Verwaltung des Equipments, wie auch der Mitarbeiter Zuständig. Er erstellt die zugehörigen Accounts der Mitarbeiter (_hireEmployee_), teilt ihnen ihre Rechte zu und vergibt ein Einmal-Passwort (_EntryPasswort_).
 
 In der Mitarbeiterverwaltung können die Mitarbeiter (_Employee_) des Fitnessstudios (_ProFit_) eingestellt (_hireEmployee_), bearbeitet (_editEmployee_)und entlassen (_fireEmployee_) werden. Die Mitarbeiter haben verschiedene Eigenschaften: Name (_Name_), Alter (_Age_), Gehalt (_Salary_), Überstunden (_OverTime_). Ein Dienstplan (_WorkSchedule_) muss ebenfalls erstellt werden, es muss zu jeder Zeit mind. eine Thekenkraft (_CounterStaff_) und ein Trainer (_Trainer_) anwesend sein. Am Abend muss eine Reinigungskraft (_Cleaner_) für 1h eingetragen sein. Die Mitarbeiter sollen einen eigenen Login (_Login_) bekommen, um den Dienstplan zu betrachten und Urlaubsanträge (_VacationRequest_)zu stellen.
-Es sollen ebenfalls alle Mitglieder (_Member_) verwaltet werden können. Eigenschaften: Name (_Name_), Geburtstag (_Birthday_), E-mail (_EMail_), Adresse (_Adress_), Einstieg (_SignUp_), Passwort (_Password_), PayPalKonto (_PayPal_). Diese können in dem Studio aufgenommen (_admitMember_), bearbeitet (_editMember_) und gekündigt (_quitMember_) werden. Bei der Aufnahme soll ein Login (_Login_) erstellt werden, damit der Kunde von zu Hause aus seinen nächsten Trainingstermin (_TrainingDate_) samt Trainingsplan (_TrainingSchedule_) nachschlagen kann, Rechnungen (_Invoice_) betrachten kann und um persönliche Daten (_editData_) zu ändern . Für jedes Mitglied kann ein individueller Trainingsplan durch den Trainer erstellt werden.
+Es sollen ebenfalls alle Mitglieder (_Member_) verwaltet werden können. Eigenschaften: Name (_Name_), Geburtstag (_Birthday_), E-mail (_EMail_), Adresse (_Adress_), Einstieg (_SignUp_), Passwort (_Password_), PayPalKonto (_PayPal_). Diese können in dem Studio aufgenommen (_createMember_), bearbeitet (_updateMember_) und gekündigt (_deleteMember_) werden. Bei der Aufnahme soll ein Login (_Login_) erstellt werden, damit der Kunde von zu Hause aus seinen nächsten Trainingstermin (_TrainingDate_) samt Trainingsplan (_TrainingSchedule_) nachschlagen kann, Rechnungen (_Invoice_) betrachten kann und um persönliche Daten (_editData_) zu ändern . Für jedes Mitglied kann ein individueller Trainingsplan durch den Trainer erstellt werden.
 
-Wirbt ein Mitglied ein neues Mitglied an, wird ihm ein bestimmter Betrag (_ReruitmentBonus_) auf sein Kundenkonto (_Account_) gutgeschrieben, welches er nur an der Theke (_Counter_) verbrauchen kann und nicht ausgezahlt wird.
+Wirbt ein Mitglied ein neues Mitglied an, wird ihm ein bestimmter Betrag (_referralBonus_) auf sein Kundenkonto (_Account_) gutgeschrieben, welches er nur an der Theke (_Counter_) verbrauchen kann und nicht ausgezahlt wird.
 Kunden (_Guest_), die zum ersten Mal das Studio besuchen, können mit einem Trainer ein Probetraining (_TrialTraining_) vereinbaren, entweder direkt im Studio oder über das Internetportal des Studios. Eine Mitgliedschaft kostet eine monatliche Gebühr (_Fee_) und kann pro Jahr für einen Monat ohne Gründe ausgesetzt werden. Am Ende des Monats wird für jeden Kunden eine Rechnung über sein Kundenkonto erstellt.
 
 Des Weiteren gibt es einen Eingangs- und Verkaufsbereich (_Counter_). An der Theke können auch Getränke (_Drinks_), Nahrungsergänzungsmittel (_Supplements_) oder Zubehör (_Equipment_) erworben (_buy_) werden, diese werden bar bezahlt oder direkt vom Kundenkonto abgebucht. Die Artikel des Verkaufsbereiches müssen sich ebenfalls verwalten lassen. Es müssen Artikel (_Item_) hinzugefügt (_addItem_), bearbeitet (_editItem_) und gelöscht (_deleteItem_) werden können. Beim Unterschreiten der Mindestmenge (_MinimumQuantity_) müssen die Artikel für den Angestellten markiert (_flagItem_) werden, um nachbestellt (_reorderItem_) werden zu können. Artikel die für den Verzehr gedacht sind, haben ein Verfallsdatum (_ExpiryDate_), welches regelmäßig überprüft werden soll. Für verschiedene Artikel soll man feinen Rabatt (_Discount_) angeben können.
@@ -117,7 +115,7 @@ Weitere relevante Spalten können bei Bedarf ergänzt werden.
 === Überblick Anwendungsfalldiagramm
 Anwendungsfall-Diagramm, das alle Anwendungsfälle und alle Akteure darstellt
 
-image::Use-Cases-Diagramm.png[]
+image::UseCase Diagram2.0.svg[]
 
 === Anwendungsfallbeschreibungen
 Dieser Unterabschnitt beschreibt die Anwendungsfälle. In dieser Beschreibung müssen noch nicht alle Sonderfälle und Varianten berücksichtigt werden. Schwerpunkt ist es, die wichtigsten Anwendungsfälle des Systems zu finden. Wichtig sind solche Anwendungsfälle, die für den Auftraggeber, den Nutzer den größten Nutzen bringen.
@@ -139,7 +137,7 @@ Die typischen Anwendungsfälle (Anlegen, Ändern, Löschen) können zu einem ein
  2. Der Benutzer gibt seine Zugangsdaten ein.
  3. Der Benutzer klickt auf die Schaltfläche „Anmelden“.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F002
 |===
 
 [cols="1h, 3"]
@@ -174,79 +172,37 @@ Die typischen Anwendungsfälle (Anlegen, Ändern, Löschen) können zu einem ein
  4. Falls der Benutzername noch nicht vergeben ist: Ein Konto wird mit den angegebenen Daten erstellt.
  5. Andernfalls: Eine Fehlermeldung wird angezeigt.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F001
 |===
 
 [cols="1h, 3"]
 [[UC0100]]
 |===
 |ID                         |**<<UC0100>>**
-|Name                       |Mitglieder Hinzufügen
-|Beschreibung               |Ein neuer Mitglieder Account soll Angelegt werden können
-|Akteure                    |Chef, Thekenkraft
-|Auslöser                   |Ein neuer Mitglieder-Account soll angelegt werden
-|Vorbedingung(en)          a|Mitglied-to-be ist nicht angemeldet
+|Name                       |Modelle ansehen
+|Beschreibung               |Mitglieder und Gäste könenn sich die verfügbaren Abo-Modelle ansehen
+|Akteure                    |Mitglied, Gast
+|Auslöser                   |Ein Mitglied/Gast will die Abo-Modelle sehen
+|Vorbedingung(en)          a|keine
 |Essenzielle Schritte      a|
- 1. Chef oder Thekenkraft drückt auf "Mitglieder hinzufügen" in der Mitgliederverwaltung.
- 2. Er gibt die gewünschten Daten an.
- 3. Das System prüft, ob der Benutzername bereits vergeben ist.
- 4. Falls der Benutzername noch nicht vergeben ist: Ein Konto wird mit den angegebenen Daten erstellt.
- 5. Andernfalls: Eine Fehlermeldung wird angezeigt.
+ 1. Abo-Modelle anklicken
 |Erweiterungen              |-
 |Funktionale Anforderungen  |...
 |===
-
-image::Mitglied_hinzufuegen.png[]
-
-- Sequenzdiagramm: Mitglieder Hinzufügen
 
 [cols="1h, 3"]
 [[UC0110]]
 |===
 |ID                         |**<<UC0110>>**
-|Name                       |Mitglieder Kündigen
-|Beschreibung               |Eins existierendes Mitglied soll entfernt werden können
-|Akteure                    |Chef, Thekenkraft
-|Auslöser                   |Ein existierendes Mitglied soll entfernt werden
-|Vorbedingung(en)          a|Das zu entfernende Mitglied hat einen Account
-|Essenzielle Schritte      a|
- 1. Chef oder Thekenkraft drückt auf "Mitglied kündigen" in der Mitgliederverwaltung.
- 2. Der Account des ausgewählten Mitglieds wird gelöscht.
-|Erweiterungen                |-
-|Funktionale Anforderungen    |...
-|===
-
-[cols="1h, 3"]
-[[UC0120]]
-|===
-|ID                         |**<<UC0120>>**
-|Name                       |Mitglieder Daten bearbeiten
-|Beschreibung               |Die Account Daten eines Mitglieds sollen bearbeitet/geändert werden können
-|Akteure                    |Chef, Thekenkraft
-|Auslöser                   |Die Account Daten eines Mitglieds sollen bearbeitet/geändert werden
+|Name                       |Warenkorb ansehen
+|Beschreibung               |Artikel die gekauft werden möchten sehen
+|Akteure                    |Mitglieder
+|Auslöser                   |Mitglied möchte seinen Warenkorb sehen
 |Vorbedingung(en)          a|Das Mitglied besitzt einen Account
 |Essenzielle Schritte      a|
- 1. Chef oder Thekenkraft drückt auf "Mitglieder Daten bearbeiten" in der Mitgliederverwaltung.
- 2. Er ersetzt die alten mit den neuen gewünschten Daten.
- 3. Er drückt auf "Bestätigen".
+ 1. auf Warenkorb klicken
 |Erweiterungen              |-
 |Funktionale Anforderungen  |...
-|===
-
-[cols="1h, 3"]
-[[UC0130]]
-|===
-|ID                         |**<<UC0130>>**
-|Name                       |Mitglieder Datenbank einsehen
-|Beschreibung               |Chef oder Thekenkraft soll eine liste aller Mitarbeiter einsehen können
-|Akteure                    |Chef, Thekenkraft
-|Auslöser                   |Chef oder Thekenkraft möchte die Datenbank der Mitarbeiter einsehen
-|Vorbedingung(en)          a|Chef oder Thekenkraft muss angemeldet sein
-|Essenzielle Schritte      a|
- 1. Chef oder Thekenkraft drückt auf "Mitglieder Datenbank" in der Mitgliederverwaltung.
- 2. Eine Liste aller Mitarbeiter wird angezeigt.
-|Erweiterungen                |-
-|Funktionale Anforderungen    |...
 |===
 
 [cols="1h, 3"]
@@ -264,164 +220,102 @@ image::Mitglied_hinzufuegen.png[]
  3. Der Gast wählt eine freie Zeit aus.
  4. Thekenkraft und Trainer werden darüber informiert.
 |Erweiterungen              |-
-|Funktionale Anforderungen  |...
+|Funktionale Anforderungen  |F003
 |===
 
-image::Probetraining.png[]
-
-- Sequenzdiagramm: Probetraining Beantragen
 
 [cols="1h, 3"]
 [[UC0210]]
 |===
 |ID                         |**<<UC0210>>**
-|Name                       |Trainingsplan einsehen
-|Beschreibung               |Ein Mitglied soll seinen Trainingsplan einsehen können
+|Name                       |Kontodaten bearbeiten
+|Beschreibung               |Ein Mitglied soll sein Konto bearbeiten können
 |Akteure                    |Mitglied
-|Auslöser                   |Ein Mitglied möchte seinen Trainsplan einsehen
+|Auslöser                   |Ein Mitglied möchte sein Konto bearbeiten
 |Vorbedingung(en)          a|Das Mitglied ist angemeldet
-|Essentielle Schritte      a|
- 1. Das Mitglied drückt auf "Trainingsplan einsehen" im Mitgliederportal.
- 2. Sein Trainingsplan wird angezeigt.
-|Erweizerungen              |-
-|Funktionale Anforderungen  |...
+|Essenzielle Schritte      a|
+ 1. Das Mitglied drückt auf "Konto einsehen" im Mitgliederportal.
+ 2. Seine Konto Daten werden angezeigt.
+|Erweiterungen              |-
+|Funktionale Anforderungen  |F004
 |===
 
 [cols="1h, 3"]
 [[UC0220]]
 |===
 |ID                         |**<<UC0220>>**
-|Name                       |Konto einsehen
-|Beschreibung               |Ein Mitglied soll sein Konto einsehen können
+|Name                       |Bestellübersicht
+|Beschreibung               |Ein Mitglied soll seine Bestullen sehen könnnen
 |Akteure                    |Mitglied
-|Auslöser                   |Ein Mitglied möchte sein Konto einsehen
+|Auslöser                   |Ein Mitglied möchte seine alten Bestellungen sehen
 |Vorbedingung(en)          a|Das Mitglied ist angemeldet
-|Essenzielle Schritte      a|
- 1. Das Mitglied drückt auf "Konto einsehen" im Mitgliederportal.
- 2. Seine Konto Daten werden angezeigt.
+|Essentielle Schritte      a|
+ 1. Das Mitglied drückt auf "Meine Bestellungen" im Mitgliederportal.
+ 2. Seine Bestellungen werden angezeigt.
 |Erweiterungen              |-
-|Funktionale Anforderungen  |...
+|Funktionale Anforderungen  |F004
 |===
-
-[cols="1h, 3"]
-[[UC0221]]
-|===
-|ID                         |**<<UC0221>>**
-|Name                       |Guthaben einzahlen
-|Beschreibung               |Ein Mitglied soll Geld auf sein Konto aufladen können
-|Akteure                    |Mitglied
-|Auslöser                   |Ein Mitglied möchte Guthaben auf sein Konto laden
-|Vorbedingung(en)          a|Das Mitglied ist angemeldet
-|Essenzielle Schritte      a|
- 1. Das Mitglied drückt auf "Guthaben einzahlen" in der Kontoansicht im Mitgliederportal.
- 2. Das Mitglied wird zur Zahlungsdienstleistung weitergeleitet.
- 3. Der gewählte Betrag wird auf das Konto geladen.
-|Erweiterungen              |- Das Mitglied muss vorher auf "Konto einsehen" gegangen sein.
-|Funktionale Anforderungen  |...
-|===
-
-image::Guthaben_aufladen.png[]
-
-- Sequenzdiagramm: Guthaben einzahlen
 
 [cols="1h, 3"]
 [[UC0230]]
 |===
 |ID                         |**<<UC0230>>**
-|Name                       |frei-Monat beantragen
-|Beschreibung               |Ein Mitglied soll seinen frei-Monat beantragen können
+|Name                       |Trainingsplan bearbeiten
+|Beschreibung               |Ein Mitglied soll seinen Trainingsplan bearbeiten können
 |Akteure                    |Mitglied
-|Auslöser                   |Ein Mitglied möchte seinen frei-Monat einlösen
+|Auslöser                   |Ein Mitglied möchte seinen Trainsplan bearbeiten
 |Vorbedingung(en)          a|Das Mitglied ist angemeldet
-|Essenzielle Schritte      a|
- 1. Das Mitglied drückt auf "frei-Monat beantragen" im Mitgliederportal.
- 2. Das Mitglied wählt einen Monat aus.
- 3. Das System prüft ob im gerade laufenden Jahr noch kein frei-Monat gewählt woder ist.
- 4. Falls nicht: - Der gewählte Monat wird als frei-Monat registriert.
-                 - Die Mitgliedschaft wird für den gewählten Monat ausgesetzt.
- 5. Falls ja: Eine Meldung mit "Sie haben bereits ihren frei-Monat in diesem Jahr eingelöst."
-|Erweiterungen              |-
-|Funktionale Anforderungen  |...
+|Essentielle Schritte      a|
+ 1. Das Mitglied drückt auf "Trainingsplan bearbeiten" im Mitgliederportal.
+ 2. Sein Trainingsplan wird angezeigt.
+|Erweizerungen              |-
+|Funktionale Anforderungen  |F004
 |===
 
 [cols="1h, 3"]
 [[UC0300]]
 |===
 |ID                         |**<<UC0300>>**
-|Name                       |Trainingsplan erstellen
-|Beschreibung               |Chef oder Trainer soll einen Trainingsplan für ein Mitglied erstellen können
-|Akteure                    |Chef, Trainer
-|Auslöser                   |Chef oder Trainer möchte einen Trainingsplan für ein Mitglied erstellen
-|Vorbedingung(en)          a|Das Mitglied muss einen account haben; Chef oder Trainer muss angemeldet sein
+|Name                       |Artikel bearbeiten
+|Beschreibung               |Der Bestand des Verkaufsbereiches soll angesehen und die Artikel bearbeitet/ hinzugefügt werden können 
+|Akteure                    |Chef, Thekenkraft
+|Auslöser                   |Chef oder Thekenkraft möchten den Lagerbestand ansehen
+|Vorbedingung(en)          a|Chef oder Thekenkraft muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Ein Trainer wählt ein Mitglied aus (er drückt darauf) in der Trainingsverwaltung.
- 2. Er drückt aud "Trainingsplan erstellen".
- 3. Er gibt die gewünschten Zeiten und Übungen aus.
- 4. Er drückt auf "Bestätigen".
+ 1. Chef oder Thekenkraft drückt auf "Lagerbestand" im Bereich der Verkaufsverwaltung.
+ 2. Eine Bestandsliste wird angezeigt.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F104
 |===
-
-image::Trainigsplan_erstellen.png[]
-
-- Sequenzdiagramm: Trainingsplan erstellen
 
 [cols="1h, 3"]
 [[UC0310]]
 |===
 |ID                         |**<<UC0310>>**
-|Name                       |Trainingszeiten ändern 
-|Beschreibung               |Die Trainingszeiten eines Mitglieds sollen geändert werden können
-|Akteure                    |Chef, Trainer
-|Auslöser                   |Chef oder Trainer möchte die Trainingszeiten eines Mitglieds ändern/bearbeiten
-|Vorbedingung(en)          a|Es muss ein Trainingsplan für das gewählte Mitglied existieren; Chef oder Trainer muss angemeldet sein.
+|Name                       |Artikel sehen
+|Beschreibung               |Welche Artikel es zu Kaufen gibt sehen
+|Akteure                    |Mitglieder, Chef, Thekenkraft, Gast
+|Auslöser                   |Chef, Thekenkraft, Mitglied, Gast möchte die Artikel im Shop sehen
+|Vorbedingung(en)          a|Chef, Thekenkraft, Mitglied, Gast müssen angemedlet sein/ nicht
 |Essenzielle Schritte      a|
- 1. Chef oder Trainer wählt ein Mitglied aus (er drückt darauf) in der Trainingsverwaltung.
- 2. Er drückt auf "Trainingszeiten ändern".
- 3. Er ersetzt die alten mit den neuen gewünschten Trainingszeiten.
- 4. Er drückt auf "Bestätigen".
+ 1. Chef, Thekenkraft, Mitglied, Gast drückt auf "Shop" im Bereich der Verkaufsverwaltung.
+ 2. Eine Artikel werden angezeigt.
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
-
-image::Trainigszeiten_aendern.png[]
-
-- Sequenzdiagramm: Trainingszeiten ändern
 
 [cols="1h, 3"]
 [[UC0320]]
 |===
 |ID                         |**<<UC0320>>**
-|Name                       |Trainingsübungen ändern 
-|Beschreibung               |Die Trainingsübungen eines Mitglieds sollen geändert werden können
-|Akteure                    |Chef, Trainer
-|Auslöser                   |Chef oder Trainer möchte die Trainingsübungen eines Mitglieds ändern/bearbeiten
-|Vorbedingung(en)          a|Es muss ein Trainingsplan für das gewählte Mitglied existieren; Chef oder Trainer muss angemeldet sein
+|Name                       |Artikel in Warenkorb
+|Beschreibung               |Artikel in den Warenkorb packen
+|Akteure                    |Mitglieder
+|Auslöser                   |Mitglied möchte Artikel kaufen
+|Vorbedingung(en)          a|Mitglied muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Chef oder Trainer wählt ein Mitglied aus (er drückt darauf) in der Trainingsverwaltung.
- 2. Er drückt auf "Trainingsübungen ändern".
- 3. Er ersetzt die alten mit den neuen gewünschten Trainingsübungen.
- 4. Er drückt auf "Bestätigen".
-|Erweiterungen                |-
-|Funktionale Anforderungen    |...
-|===
-
-image::Trainigsuebung_aendern.png[]
-
-- Sequenzdiagramm: Trainingsübungen ändern
-
-[cols="1h, 3"]
-[[UC0330]]
-|===
-|ID                         |**<<UC0330>>**
-|Name                       |Probetrainings-Übersicht einsehen
-|Beschreibung               |Chef oder Trainer sollen eine Probetrainings-Übersicht einsehen können
-|Akteure                    |Chef, Trainer
-|Auslöser                   |Chef oder Trainer möchte die Probetrainings-Übersicht einsehen
-|Vorbedingung(en)          a|Chef oder Trainer muss angemeldet sein
-|Essenzielle Schritte      a|
- 1. Chef oder Trainer drückt auf "Probetrainings-Übersicht" in der Trainingsverwaltung.
- 2. Eine Übersicht der gebuchten Probetrainings wird angezeigt.
+ 1. Mitglied wählt anzahl
+ 2. Drückt auf zum Warenkorb hinzufügen 
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
@@ -430,14 +324,14 @@ image::Trainigsuebung_aendern.png[]
 [[UC0400]]
 |===
 |ID                         |**<<UC0400>>**
-|Name                       |Bestand ansehen
-|Beschreibung               |Der Bestand des Verkaufsbereiches soll angesehen werden können
-|Akteure                    |Chef, Thekenkraft
-|Auslöser                   |Chef oder Thekenkraft möchten den Bestand des Verkaufsbereiches ansehen
-|Vorbedingung(en)          a|Chef oder Thekenkraft muss angemeldet sein
+|Name                       |Artikel kaufen
+|Beschreibung               |Artikel kaufen
+|Akteure                    |Mitglieder
+|Auslöser                   |Mitglied möchte Artikel kaufen
+|Vorbedingung(en)          a|Mitglied muss angemeldet sein und Artikel sind im Warenkorb
 |Essenzielle Schritte      a|
- 1. Chef oder Thekenkraft drückt auf "Bestand ansehen" im Bereich der Verkaufsverwaltung.
- 2. Eine Bestandsliste wird angezeigt.
+ 1. Mitglied fügt Artikel zum Warenkorb hinzu
+ 2. Drückt auf Kaufen und Bezahlen
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
@@ -446,44 +340,140 @@ image::Trainigsuebung_aendern.png[]
 [[UC0410]]
 |===
 |ID                         |**<<UC0410>>**
-|Name                       |Nachbestellen
-|Beschreibung               |Sobald die Anzahl eines Artikels zu niedrig wird und es dem Chef und der Thekenkraft gemeldet wird, soll sie diesen Artikel nachbestellen können
-|Akteure                    |Chef, Thekenkraft
-|Auslöser                   |Chef oder Thekenkraft möchte einen Artikel nachbestellen
-|Vorbedingung(en)          a|Chef oder Thekenkraft muss angemeldet sein
+|Name                       |Rechnung sehen/drucken
+|Beschreibung               |Nach dem kauf die Rechnung sehen und drucken können
+|Akteure                    |Mitglieder
+|Auslöser                   |Mitglied möchte seine Rechnung sehen und drucken
+|Vorbedingung(en)          a|Mitglied muss angemeldet sein und Artikel gekauft/bezahlt haben
 |Essenzielle Schritte      a|
- 1. Chef oder Thekenkraft wählt einen Artikel in der Bestandsliste aus.
- 2. Er drückt auf "Nachbestellen".
- 3. Das System leitet ihn zu der zugehörigen Webseite weiter.
+ 1. Mitglied hat Artikel gekauft
+ 2. Drückt auf Rechnung anzeigen/ drucken
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
-
-image::Nachbestellungen.png[]
-
-- Sequenzdiagramm:  Nachbestellen
 
 [cols="1h, 3"]
 [[UC0500]]
 |===
 |ID                         |**<<UC0500>>**
-|Name                       |Dienstsplan einsehen
-|Beschreibung               |Trainer, Thekenkraft oder Putzkraft soll den Dienstplan der Woche einsehen können
-|Akteure                    |Trainer, Thekenkraft, Putzkraft
-|Auslöser                   |Trainer, Thekenkraft oder Putzkraft möchter seinen Dienstplan der Woche einsehen
-|Vorbedingung(en)          a|Trainer, Thekenkraft oder Putzkraft muss angemeldet sein
+|Name                       |Bestellungen einsehen
+|Beschreibung               |Der Chef möchte sehen was alles gekauft wurde 
+|Akteure                    |Chef
+|Auslöser                   |Mitglied möchte die gekauften Artikel sehen
+|Vorbedingung(en)          a|Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Trainer, Thekenkraft oder Putzkraft drückt auf "Dienstplan einsehen" im Mitarbeiterportal.
- 2. Der Dienstplan der gewählten Woche wird angezeigt.
+ 1. Chef drückt auf Bestellungen einsehen
+|Erweiterungen                |-
+|Funktionale Anforderungen    |F203
+|===
+
+[cols="1h, 3"]
+[[UC0600]]
+|===
+|ID                         |**<<UC0600>>**
+|Name                       |Mitglieder Trainingspläne sehen
+|Beschreibung               |Der Chef oder Trainer kann dei Trainingspläne der Mitglieder einsehen 
+|Akteure                    |Chef, Trainer
+|Auslöser                   |Chef oder Trainer möchten den Trainingsplan eines Mitgliedes sehen und z.B. bearbeiten
+|Vorbedingung(en)          a|Chef, Trainer muss angemeldet sein
+|Essenzielle Schritte      a|
+ 1. Chef Trainer drückt auf Trainingsverwaltung
+ 2. Mitglied wählen
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
 
 [cols="1h, 3"]
-[[UC0510]]
+[[UC0610]]
 |===
-|ID                         |**<<UC0510>>**
-|Name                       |Urlaub beantragen
+|ID                         |**<<UC0610>>**
+|Name                       |Mitglieder Trainingspläne bearbeiten
+|Beschreibung               |Der Chef oder Trainer kann dei Trainingspläne der Mitglieder bearbeiten
+|Akteure                    |Chef, Trainer
+|Auslöser                   |Chef oder Trainer möchten den Trainingsplan eines Mitgliedes bearbeiten
+|Vorbedingung(en)          a|Chef, Trainer muss angemeldet sein
+|Essenzielle Schritte      a|
+ 1. Chef Trainer drückt auf Trainingsverwaltung
+ 2. Mitglied wählen
+|Erweiterungen                |-
+|Funktionale Anforderungen    |F102
+|===
+
+[cols="1h, 3"]
+[[UC0700]]
+|===
+|ID                         |**<<UC0700>>**
+|Name                       |Mitglieder bearbeiten
+|Beschreibung               |Die Account Daten eines Mitglieds sollen bearbeitet/geändert werden können
+|Akteure                    |Chef, Thekenkraft
+|Auslöser                   |Die Account Daten eines Mitglieds sollen bearbeitet/geändert werden
+|Vorbedingung(en)          a|Das Mitglied besitzt einen Account
+|Essenzielle Schritte      a|
+ 1. Chef oder Thekenkraft drückt auf "Mitglieder Daten bearbeiten" in der Mitgliederverwaltung.
+ 2. Er ersetzt die alten mit den neuen gewünschten Daten.
+ 3. Er drückt auf "Bestätigen".
+|Erweiterungen              |-
+|Funktionale Anforderungen  |F103
+|===
+
+[cols="1h, 3"]
+[[UC0710]]
+|===
+|ID                         |**<<UC0710>>**
+|Name                       |Mitglieder löschen
+|Beschreibung               |Eins existierendes Mitglied soll entfernt werden können
+|Akteure                    |Chef, Thekenkraft
+|Auslöser                   |Ein existierendes Mitglied soll entfernt werden
+|Vorbedingung(en)          a|Das zu entfernende Mitglied hat einen Account
+|Essenzielle Schritte      a|
+ 1. Chef oder Thekenkraft drückt auf "Mitglied kündigen" in der Mitgliederverwaltung.
+ 2. Der Account des ausgewählten Mitglieds wird gelöscht.
+|Erweiterungen                |-
+|Funktionale Anforderungen    |F103
+|===
+
+[cols="1h, 3"]
+[[UC0720]]
+|===
+|ID                         |**<<UC0720>>**
+|Name                       |Mitglieder erstellen
+|Beschreibung               |Ein neuer Mitglieder Account soll Angelegt werden können
+|Akteure                    |Chef, Thekenkraft
+|Auslöser                   |Ein neuer Mitglieder-Account soll angelegt werden
+|Vorbedingung(en)          a|Mitglied-to-be ist nicht angemeldet
+|Essenzielle Schritte      a|
+ 1. Chef oder Thekenkraft drückt auf "Mitglieder hinzufügen" in der Mitgliederverwaltung.
+ 2. Er gibt die gewünschten Daten an.
+ 3. Das System prüft, ob der Benutzername bereits vergeben ist.
+ 4. Falls der Benutzername noch nicht vergeben ist: Ein Konto wird mit den angegebenen Daten erstellt.
+ 5. Andernfalls: Eine Fehlermeldung wird angezeigt.
+|Erweiterungen              |-
+|Funktionale Anforderungen  |F103
+|===
+
+
+[cols="1h, 3"]
+[[UC0800]]
+|===
+|ID                         |**<<UC0800>>**
+|Name                       |Urlaub beantworten
+|Beschreibung               |Der Chef soll eine die Urlaubsanträge sehen und bewerten können
+|Akteure                    |Chef
+|Auslöser                   |Der Chef möchte die Urlaubs Anträge einsehen
+|Vorbedingung(en)          a|Der Chef muss angemeldet sein
+|Essenzielle Schritte      a|
+ 1. Der Chef drückt auf "Urlaubsanfragen" in der Mitarbeiterverwaltung.
+ 2. Eine Übersicht der kommenden Urlaube wird angezeigt.
+|Erweiterungen                |-
+|Funktionale Anforderungen    |...
+|===
+
+
+[cols="1h, 3"]
+[[UC0810]]
+|===
+|ID                         |**<<UC0810>>**
+|Name                       |Urlaub anfragen
 |Beschreibung               |Trainer, Thekenkraft oder Putzkraft soll Urlaub beantragen können
 |Akteure                    |Trainer, Thekenkraft oder Putzkraft
 |Auslöser                   |Trainer, Thekenkraft oder Putzkraft möchte Urlaub beantragen
@@ -494,18 +484,32 @@ image::Nachbestellungen.png[]
  3. Er drückt auf "Bestätigen".
  4. Der Chef wird über den Antrag informiert und kann diesen annehmen oder ablehnen.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F101
 |===
 
-image::Urlaub_beantragen.png[]
-
-- Sequenzdiagramm: Urlaub beantragen
 
 [cols="1h, 3"]
-[[UC0600]]
+[[UC0900]]
 |===
-|ID                         |**<<UC0600>>**
-|Name                       |Mitarbeiter einstellen
+|ID                         |**<<UC0900>>**
+|Name                       |Mitarbeiter bearbeiten
+|Beschreibung               |Der Chef soll den Account eines Mitarbeiters bearbeiten können
+|Akteure                    |Chef
+|Auslöser                   |Der Chef möchte einen Mitarbeiteraccount bearbeiten
+|Vorbedingung(en)          a|Der Chef muss angemeldet sein
+|Essenzielle Schritte      a|
+ 1. Chef drückt auf "Mitarbeiter bearbeiten" im Fenster eines Mitarbeiters in der Mitarbeiterverwaltung.
+ 2. Er ersetzt die alten mit den neuen gewünschten Daten.
+ 3. Er drückt auf "Bestätigen".
+|Erweiterungen                |-
+|Funktionale Anforderungen    |F201
+|===
+
+[cols="1h, 3"]
+[[UC0910]]
+|===
+|ID                         |**<<UC0910>>**
+|Name                       |Mitarbeiter erstellen
 |Beschreibung               |Der Chef soll einen neuen Account für einen neuen Mitarbeiter erstellen können
 |Akteure                    |Chef
 |Auslöser                   |Der Chef möchte einen neuen Mitarbeiteraccount erstellen
@@ -517,13 +521,13 @@ image::Urlaub_beantragen.png[]
  4. Falls der Benutzername noch nicht vergeben ist: Ein Konto wird mit den angegebenen Daten erstellt.
  5. Andernfalls: Eine Fehlermeldung wird angezeigt.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F201
 |===
 
 [cols="1h, 3"]
-[[UC0610]]
+[[UC0920]]
 |===
-|ID                         |**<<UC0610>>**
+|ID                         |**<<UC0920>>**
 |Name                       |Mitarbeiter kündigen
 |Beschreibung               |Der Chef soll den Account eines Mitarbeiters löschen können
 |Akteure                    |Chef
@@ -533,119 +537,81 @@ image::Urlaub_beantragen.png[]
  1. Chef drückt auf "Mitarbeiter kündigen" im Fenster eines Mitarbeiters in der Mitarbeiterverwaltung.
  2. Der gewählte Mitarbeiteaccount wird gelöscht.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F201
 |===
 
-image::Mitarbeiter_kuendigen.png[]
-
-- Sequenzdiagramm: Mitarbeiter kündigen
 
 [cols="1h, 3"]
-[[UC0620]]
+[[UC1000]]
 |===
-|ID                         |**<<UC0620>>**
-|Name                       |Mitarbeiter bearbeiten
-|Beschreibung               |Der Chef soll den Account eines Mitarbeiters bearbeiten können
+|ID                         |**<<UC1000>>**
+|Name                       |Dienstsplan einsehen
+|Beschreibung               |Trainer, Thekenkraft oder Putzkraft soll den Dienstplan der Woche einsehen können
+|Akteure                    |Trainer, Thekenkraft, Putzkraft
+|Auslöser                   |Trainer, Thekenkraft oder Putzkraft möchter seinen Dienstplan der Woche einsehen
+|Vorbedingung(en)          a|Trainer, Thekenkraft oder Putzkraft muss angemeldet sein
+|Essenzielle Schritte      a|
+ 1. Trainer, Thekenkraft oder Putzkraft drückt auf "Dienstplan einsehen" im Mitarbeiterportal.
+ 2. Der Dienstplan der gewählten Woche wird angezeigt.
+|Erweiterungen                |-
+|Funktionale Anforderungen    |F101
+|===
+
+[cols="1h, 3"]
+[[UC1010]]
+|===
+|ID                         |**<<UC1010>>**
+|Name                       |Dienstplan erstellen
+|Beschreibung               |Der Chef soll den Dienstplan erstellen können
 |Akteure                    |Chef
-|Auslöser                   |Der Chef möchte einen Mitarbeiteraccount bearbeiten
+|Auslöser                   |Der Chef möchte eine neue Schicht erstellen
 |Vorbedingung(en)          a|Der Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Chef drückt auf "Mitarbeiter bearbeiten" im Fenster eines Mitarbeiters in der Mitarbeiterverwaltung.
- 2. Er ersetzt die alten mit den neuen gewünschten Daten.
+ 1. Der Chef drückt auf "Diesntplan" in der Mitarbeiterverwaltung.
+ 2. Er erstellt eine neue Schicht mit Trainer und Thekenkraft.
  3. Er drückt auf "Bestätigen".
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F202
 |===
 
 [cols="1h, 3"]
-[[UC0630]]
+[[UC1020]]
 |===
-|ID                         |**<<UC0630>>**
-|Name                       |Mitarbeiter Datenbank einsehen
-|Beschreibung               |Der Chef soll eine liste aller Mitarbeiter einsehen können
+|ID                         |**<<UC1020>>**
+|Name                       |Dienstplan bearbeiten
+|Beschreibung               |Der Chef soll den Dienstplan bearbeiten können
 |Akteure                    |Chef
-|Auslöser                   |Der Chef möchte die Datenbank der Mitarbeiter einsehen
+|Auslöser                   |Der Chef möchte den Dienstplan bearbeiten
 |Vorbedingung(en)          a|Der Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Mitarbeiter Datenbank" in der Mitarbeiterverwaltung.
- 2. Eine Liste aller Mitarbeiter wird angezeigt.
-|Erweiterungen                |-
-|Funktionale Anforderungen    |...
-|===
-
-[cols="1h, 3"]
-[[UC0640]]
-|===
-|ID                         |**<<UC0640>>**
-|Name                       |Urlaubs Übersicht einsehen
-|Beschreibung               |Der Chef soll eine Übersicht aller Urlaube einsehen können
-|Akteure                    |Chef
-|Auslöser                   |Der Chef möchte die Urlaubs Übersicht einsehen
-|Vorbedingung(en)          a|Der Chef muss angemeldet sein
-|Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Urlaubs Übersicht" in der Mitarbeiterverwaltung.
- 2. Eine Übersicht der kommenden Urlaube wird angezeigt.
-|Erweiterungen                |-
-|Funktionale Anforderungen    |...
-|===
-
-[cols="1h, 3"]
-[[UC0640]]
-|===
-|ID                         |**<<UC0650>>**
-|Name                       |Dienstplan ändern
-|Beschreibung               |Der Chef soll den Dienstplan ändern können
-|Akteure                    |Chef
-|Auslöser                   |Der Chef möchte den Dienstplan ändern
-|Vorbedingung(en)          a|Der Chef muss angemeldet sein
-|Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Diesntplan ändern" in der Mitarbeiterverwaltung.
+ 1. Der Chef drückt auf "Diesntplan" in der Mitarbeiterverwaltung.
  2. Er ersetzt den alten mit dem neuen Dienstplan.
  3. Er drückt auf "Bestätigen".
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F202
 |===
 
 [cols="1h, 3"]
-[[UC0700]]
+[[UC1100]]
 |===
-|ID                         |**<<UC0700>>**
-|Name                       |Ein- und Ausgaben einsehen
+|ID                         |**<<UC1000>>**
+|Name                       |Statistiken einsehen
 |Beschreibung               |Der Chef soll die Statistiken der Ein- und Ausgaben einsehen können
 |Akteure                    |Chef
 |Auslöser                   |Der Chef möchte die Statistiken der Ein- und Ausgaben einsehen
 |Vorbedingung(en)          a|Der Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Ein- und Ausgaben einsehen" im Abschnitt "Finanzen und Statistik".
+ 1. Der Chef drückt auf "Finanzen und Statistiken" im Abschnitt "Finanzen und Statistik".
  2. Die Diagramme über die Ein- und Ausgaben werden angezeigt.
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F203
 |===
 
-image::Ein-und_Ausgaben_ansehen.png[]
-
-- Sequenzdiagramm: Ein- und Ausgaben einsehen
 
 [cols="1h, 3"]
-[[UC0710]]
+[[UC1200]]
 |===
-|ID                         |**<<UC0710>>**
-|Name                       |Gewinn- und Verlustrechnung (GuV)
-|Beschreibung               |Der Chef soll die Übersicht zur GuV einsehen können
-|Akteure                    |Chef
-|Auslöser                   |Der Chef möchte die GuV Übersicht einsehen
-|Vorbedingung(en)          a|Der Chef muss angemeldet sein
-|Essenzielle Schritte      a|
- 1. Der Chef drückt auf "GuV" im Abschnitt "Finanzen und Statistik".
- 2. Die GuV Übersicht wird angezeigt.
-|Erweiterungen                |-
-|Funktionale Anforderungen    |...
-|===
-
-[cols="1h, 3"]
-[[UC0800]]
-|===
-|ID                         |**<<UC0800>>**
+|ID                         |**<<UC1200>>**
 |Name                       |Rabatt ändern
 |Beschreibung               |Der Chef soll global die höhe des Rabatts anpassen können
 |Akteure                    |Chef
@@ -656,13 +622,13 @@ image::Ein-und_Ausgaben_ansehen.png[]
  2. Er ersetzt den alten mit dem neuen gewünschten Betrag.
  3. Er drückt auf "Bestätigen".
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F104
 |===
 
 [cols="1h, 3"]
-[[UC0810]]
+[[UC1210]]
 |===
-|ID                         |**<<UC0810>>**
+|ID                         |**<<UC1210>>**
 |Name                       |Öffnungszeiten ändern
 |Beschreibung               |Der Chef soll global die Öffnungszeiten anpassen können
 |Akteure                    |Chef
@@ -673,20 +639,37 @@ image::Ein-und_Ausgaben_ansehen.png[]
  2. Er ersetzt den alten mit dem neuen gewünschten Betrag.
  3. Er drückt auf "Bestätigen".
 |Erweiterungen                |-
-|Funktionale Anforderungen    |...
+|Funktionale Anforderungen    |F204
 |===
 
 [cols="1h, 3"]
-[[UC0820]]
+[[UC1220]]
 |===
-|ID                         |**<<UC0820>>**
+|ID                         |**<<UC1220>>**
 |Name                       |Neuwerbungsprämie ändern
 |Beschreibung               |Der Chef soll global die Neuwerbungsprämie anpassen können
 |Akteure                    |Chef
 |Auslöser                   |Der Chef möchte die Neuwerbungsprämie anpassen
 |Vorbedingung(en)          a|Der Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Rabatt ändern" im Abschnitt der Globalen EInstellungen.
+ 1. Der Chef drückt auf "Neuwerbungsprämie" im Abschnitt der Globalen EInstellungen.
+ 2. Er ersetzt den alten mit dem neuen gewünschten Betrag.
+ 3. Er drückt auf "Bestätigen".
+|Erweiterungen                |-
+|Funktionale Anforderungen    |F005
+|===
+
+[cols="1h, 3"]
+[[UC1230]]
+|===
+|ID                         |**<<UC1230>>**
+|Name                       |Creator Provision
+|Beschreibung               |Der Chef soll global die Creator Provision anpassen können
+|Akteure                    |Chef
+|Auslöser                   |Der Chef möchte die Creator Provision anpassen
+|Vorbedingung(en)          a|Der Chef muss angemeldet sein
+|Essenzielle Schritte      a|
+ 1. Der Chef drückt auf "CreatorProvision" im Abschnitt der Globalen EInstellungen.
  2. Er ersetzt den alten mit dem neuen gewünschten Betrag.
  3. Er drückt auf "Bestätigen".
 |Erweiterungen                |-
@@ -694,38 +677,38 @@ image::Ein-und_Ausgaben_ansehen.png[]
 |===
 
 [cols="1h, 3"]
-[[UC0830]]
+[[UC1300]]
 |===
-|ID                         |**<<UC0830>>**
-|Name                       |Monatliche Gebühren ändern
-|Beschreibung               |Der Chef soll global die Monatlichen Gebühren anpassen können
+|ID                         |**<<UC1300>>**
+|Name                       |Creator-Code löschen
+|Beschreibung               |Der Chef soll Creator-Codes löschen können
 |Akteure                    |Chef
-|Auslöser                   |Der Chef möchte die Monatlichen Gebühren anpassen
+|Auslöser                   |Der Chef möchte einen Creator-Code löschen
 |Vorbedingung(en)          a|Der Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Rabatt ändern" im Abschnitt der Globalen EInstellungen.
- 2. Er ersetzt den alten mit dem neuen gewünschten Betrag.
- 3. Er drückt auf "Bestätigen".
+ 1. Der Chef drückt auf "Creator-Code Verwaltung" im Abschnitt der Chef Übersicht.
+ 2. Er löscht einen Code.
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
 
 [cols="1h, 3"]
-[[UC0840]]
+[[UC1310]]
 |===
-|ID                         |**<<UC0840>>**
-|Name                       |Vertragslaufzeit ändern
-|Beschreibung               |Der Chef soll global die Vertragslaufzeit anpassen können
+|ID                         |**<<UC1310>>**
+|Name                       |Creator-Code erstellen
+|Beschreibung               |Der Chef soll Creator-Codes erstellen können
 |Akteure                    |Chef
-|Auslöser                   |Der Chef möchte die Vertragslaufzeit anpassen
+|Auslöser                   |Der Chef möchte einen neuen Creator-Code erstellen
 |Vorbedingung(en)          a|Der Chef muss angemeldet sein
 |Essenzielle Schritte      a|
- 1. Der Chef drückt auf "Rabatt ändern" im Abschnitt der Globalen EInstellungen.
- 2. Er ersetzt den alten mit dem neuen gewünschten Betrag.
- 3. Er drückt auf "Bestätigen".
+ 1. Der Chef drückt auf "Creator-Code Verwaltung" im Abschnitt der Chef Übersicht.
+ 2. Der Chef gibt ein Mitglied an, Code namen und die höhe des Rabatts.
+ 3. Mit "Code zuweisen" bestätigen
 |Erweiterungen                |-
 |Funktionale Anforderungen    |...
 |===
+
 
 == Funktionale Anforderungen
 
@@ -923,9 +906,9 @@ Konkrete Absprachen - beispielsweise ob der grafische Prototyp oder die Dialogla
 Erstellen Sie ein Übersichtsdiagramm, das das Zusammenspiel Ihrer Masken zur Laufzeit darstellt. Also mit welchen Aktionen zwischen den Masken navigiert wird.
 //Die nachfolgende Abbildung zeigt eine an die Pinnwand gezeichnete Dialoglandkarte. Ihre Karte sollte zusätzlich die Buttons/Funktionen darstellen, mit deren Hilfe Sie zwischen den Masken navigieren.
 
-image::Dialogkarte.svg[]
+image::Gesamze Dialogkarte.svg[]
 
-- Dialogkarte Gesamte Karte. Die dukel unterlegten sind noch nicht fertig implementiert
+- Dialogkarte Gesamte Karte.
 
 
 
@@ -934,12 +917,12 @@ image::Chef Dialogkarte.svg[]
 - Dialogkarten: Ausschitt des Chefs
 
 
-image::Mitglied Dialogkarte.svg[]
+image::Mitglieder Dialogkarte.svg[]
 
 - Dialogkarten: Ausschitt der Mitglieder
 
 
-image::Trainer Dialogkarte.svg[]
+image::Gast Dialogkarte.svg[]
 
 - Dialogkarten: Ausschitt der Trainer
 
@@ -954,77 +937,83 @@ image::Cleaner Dialogkarte.svg[]
 - Dialogkarten: Ausschitt des Cleaners
 
 
-image::Gast Dialogkarte.svg[]
+image::Trainer Dialogkarte.svg[]
 
 - Dialogkarten: Ausschitt des Gast
 
 === Dialogbeschreibung
 Für jeden Dialog:
 
-image::Start-Seite.png[]
+image::Startseite ohne anmeldung.png[]
 
 - Start Seite wenn man ohne anmeldung auf die Webseite kommt
 
 
-image::Anmeldung.png[]
+image::Anmelden.png[]
 
 - Das Anmelde-Formular
 
 
-image::Passwort vergessen.png[]
+image::Passwort zuruecksetzen.png[]
 
 - Wenn der Nutzer sein Passwort vergessen hat kan er sich eine E-Mail senden lassen und es ändern.
 
 
-image::Registrieren.png[]
+image::Registrieren .png[]
 
 - Das Registrier-Formular. Für neue Leute
 
-image::Gast Start-Seite.png[]
+image::Navigation Mitglieder.png[]
 
-- Erste Seite die angezeigt, wenn sich ein Gast anmeldet
-
-image::Mitglieder Start-Seite.png[]
-
-- Erste Seite die angezeigt, wenn sich ein Mitglied anmeldet
+- Erste Seite die angezeigt, wenn sich ein Mitglied/Gast anmeldet
 
 
-image::Trainer Start-Seite.png[]
+image::Navigation Trainer.png[]
 
 - Erste Seite die angezeigt, wenn sich ein Trainer anmeldet
 
 
-image::Thekenkraft Start-Seite.png[]
+image::Navigation Thekenkraft.png[]
 
 - Erste Seite die angezeigt, wenn sich eine Thekenkraft anmeldet
 
 
-image::Cleaner Start-Seite.png[]
+image::Navigation Cleaner.png[]
 
 - Erste Seite die angezeigt, wenn sich ein Cleaner anmeldet
 
 
-image::Chef Start-Seite.png[]
+image::Navigation Chef.png[]
 
 - Erste Seite die angezeigt, wenn sich der Chef anmeldet
 
 
-image::Abo-Modelle.png[]
+image::Abo-Modelle mit Acc.png[]
 
-- Auf dieser Seite sieht man die Verfügbaren Abo-Modelle. Sichtbar für alle
-
-
-image::Shop.png[]
-
-- Auf dieser Seite sieht man den Shop. Sichtbar für alle, außer den Chef, da anders.
+- Auf dieser Seite sieht man die Verfügbaren Abo-Modelle. Wenn man einen Account hat
 
 
-image::Lagerbestand (Shop Chef).png[]
+image::Abo-Modelle ohne acc.png[]
 
-- Shop Ansicht des Chefs und der Thekenkraft. Dieser Kann Artikel bearbeiten und neue hinzufügen
+- So sieht es aus, wenn man keine Account hat 
 
 
-image::Artikel hinzufuegen.png[]
+image::Shop ohne acc.png[]
+
+-Shopansicht für nicht Registrierte
+
+
+image::Shop Mitglied.png[]
+
+- Auf dieser Seite sieht man den Shop. Sichtbar für alle, außer den Chef und Thekenkraft, da anders.
+
+
+image::Lagerbestand.png[]
+
+- Shop Ansicht des Chefs und der Thekenkraft. Diese können Artikel bearbeiten und neue hinzufügen
+
+
+image::Neuen Artikel hinzufuegen.png[]
 
 - Hier können neue Artikel hinzugefügt werden
 
@@ -1039,12 +1028,12 @@ image::Mitgliederverwaltung.png[]
 - Verwaltung der Mitglieder für den Chef und die Thekenkraft
 
 
-image::Mitglieder hinzufuegen.png[]
+image::Neues Mitglied anlegen.png[]
 
 - Neues Mitglied anlegen und der Liste hinzufügen durch bestätigen
 
 
-image::Mitglieder bearbeiten.png[]
+image::Mitglied bearbeiten.png[]
 
 - Bestehende Mitglieder bearbeiten, falls es änderungen der Daten gibt und dann wieder speichern
 
@@ -1069,11 +1058,114 @@ image::loeschen.png[]
 - Wenn ein Mitarbeiter, Mitglied oder Artikel gelöscht werden soll, kommt vor dem löschen nochmal eine Frage nach der bestätigung
 
 
+image::Trainingsverwaltung.png[]
 
-1. Kurze textuelle Dialogbeschreibung eingefügt: Was soll der jeweilige Dialog? Was kann man damit tun? Überblick?
-2. Maskenentwürfe (Screenshot, Mockup)
-3. Maskenelemente (Ein/Ausgabefelder, Aktionen wie Buttons, Listen, …)
-4. Evtl. Maskendetails, spezielle Widgets
+- Übersicht über die Trainingspläne der Mitglieder für Chef und Trainer
+
+
+image::Trainingsplan.png[]
+
+- Übersucht über eigenes Training eines Mitgliedes
+
+
+image::Training hinzufuegen.png[]
+
+- Eine neue Trainingseinheit dem Plan hinzufügen
+
+
+image::Uebung hinzufuegen.png[]
+
+- ein Bestehendes Training bearbeiten
+
+
+image::Uebersicht aller Bestellungen.png[]
+
+- Hier sieht der Chef alle dinge die die Mitglieder gekauft haben 
+
+
+image::Meine Bestellungen.png[]
+
+- Hier sehen die Mitglieder ihre eigennen Bestellungen 
+
+
+image::Diensplan Chef.png[]
+
+-Dienstplan sicht des Chefs. Er kan bearbeiten 
+
+
+image::Neue Schicht erstellen.png[]
+
+- Neue Schicht erstellen
+
+
+image::Putzschicht erstellen.png[]
+
+-Putzschicht hinzufügen
+
+
+image::Dienstplan Mitarbeiter.png[]
+
+-So sehen die Mitarbeiter den Dienstplan
+
+
+image::Urlaubsanfragen der Mitarbeiter.png[]
+
+- Hier sieht der Chef alle unbeantworteten Urlaubsanfragen der Mitarbeiter und kann diese annehmen oder ablehnen 
+
+
+image::Urlaube.png[]
+
+- Hier sehe die Mitarbeiter ihre Anfragen und wie der Status ist
+
+
+image::Urlaub beantragen .png[]
+
+- in diesem MenÜ können die Mitarbeiter ihren Urlaub beantragen
+
+
+image::Finanz-und Statistikuebersicht.png[]
+
+-Übersicht über die Statistiken
+
+
+image::Globale Einstellungen.png[]
+
+-Übersicht über die Aktuellen Einstellungen
+
+
+image::Globale Einstellungen bearbeiten.png[]
+
+-Aktuelle Einstellungen ändern
+
+
+image::Creator-Code Verwaltung.png[]
+
+-Creator-Code ändern
+
+
+image::Kaufen.png[]
+
+-Ansicht der Bestellübersicht
+
+
+image::Rechnung.png[]
+
+- Rechnung nach einem erfolgreichen Einkauf
+
+
+image::Warenkorb ohne inhalt.png[]
+
+- leerer warenkorb
+
+
+image::Probetraining beantragen.png[]
+
+- Übersicht über verfügbare ProbeTrainings
+
+
+image::Meine Probetrainings.png[]
+
+- Mein Gebuchtes Probetraining
 
 == Datenmodell
 
@@ -1099,6 +1191,16 @@ Dieser Abschnitt stellt eine Vereinigung von Glossar und der Beschreibung von Kl
 |Others                |Sind Items im Online-Shop die kein essen sind
 |Inventory             |Stellt den Bestand der Items im ItemCatalog dar
 |Inventory-Item        |Stellt die anzahl der verfügbaren Items im inventory dar
+|Vacation              |Der Urlaub den Mitarbeiter beantragen können 
+|Exercise              |Steht für einzelne Übungen die man im Training machen kann
+|Training Day          |Sind die Wochentage an denen geöffnet ist
+|Trainingsplan         |Wann ist welchen Training 
+|Trainingsplanitem     |Ein Training mit Übung, Gewicht, Wiederholugen, Tag
+|TrailTraining         |Probetrainig für gäste um das Gym an einem Tag zu testen
+|Shift                 |Eine Dienstschicht mit Mitarbeiter und Zeit
+|Abo Plan              |Länge/Art eines Abos
+|Creator Code          |Möglichkeit für den Chef wichtigen Mitglieder eine Beteiligung an Bestellungen zu geben
+
 
 
 
@@ -1125,7 +1227,7 @@ Er hat vollen Zugriff auf das System (abhängig von seiner Rolle)
 |===
 
 |===
-|ID |
+|ID | **<<AT0011>>**
 |Use Case| **<<UC0011>>**
 |Vorbedingung| Ein Verifizierter User nutzt das System
 |Geschehen | Er drückt den abmelde Button
@@ -1133,7 +1235,7 @@ Er hat vollen Zugriff auf das System (abhängig von seiner Rolle)
 |===
 
 |===
-|ID |
+|ID | **<<AT0020>>**
 |Use Case| **<<UC0020>>**
 |Vorbedingung| Ein nicht verifiezierter User nutzt das System
 |Geschehen | Er geht zu Registrierung und gibt seine Daten ein (Name, Passwort, Email,...) und drückt auf den Button Registrieren
@@ -1141,70 +1243,281 @@ Er hat vollen Zugriff auf das System (abhängig von seiner Rolle)
 |===
 
 |===
-|ID | 
+|ID |  **<<AT0100>>**
 |Use Case| **<<UC0100>>**
-|Vorbedingung| Ein als Employee/Chef registrierter User nutzt das System
-|Geschehen | Der als Employee/Chef registrierter User gibt die Daten den neuen Mitgliedes ein und drückt auf den Button hinzufügen 
-|Erwartetes Resultat | Die Liste der Mitglieder wird um einen neuen erweitert
+|Vorbedingung| Ein Gast oder angemeldetes Mitglied sind da
+|Geschehen | Der Gast/Mitglied drückt auf Abo-Modelle
+|Erwartetes Resultat | Die verfügbaren Abo-Modelle werden angezeigt
 |===
 
 |===
-|ID |
+|ID | **<<AT0110>>**
 |Use Case| **<<UC0110>>**
-|Vorbedingung| Ein als Employee/Chef registrierter User nutzt das System und die Liste der Member ist nicht leer
-|Geschehen | Der als Employee/Chef registrierter User drückt auf den Button löschen 
-|Erwartetes Resultat | Der Member wird aus der Mitgleiderliste entfernt 
+|Vorbedingung| Ein registriertes Mitglied ohne Abo oder ein Gast sind angemeldet
+|Geschehen | Nutzer fügt Abo-Model dem Warenkorb hinzu
+|Erwartetes Resultat | Abo-Modell wird im Warenkorb angezeigt
 |===
 
 |===
-|ID |
-|Use Case| **<<UC0120>>**
-|Vorbedingung| Ein als Employee/Chef registrierter User nutzt das System und die Liste der Member ist nicht leer
-|Geschehen | Der als Employee/Chef registrierter User drückt auf den Button bearbeiten
-|Erwartetes Resultat | Der ausgewählte Member kommt in die Bearbeitungs- /Hinzufügen- übersicht und kann da bearbeitet werden 
+|ID | **<<AT0200>>**
+|Use Case| **<<UC0200>>**
+|Vorbedingung| ein Mitglied ohne Mitgliedschaft oder Gast sind angemeldet
+|Geschehen | Wählen ein Probetraining aus 
+|Erwartetes Resultat | Probetraining wird aus der Liste verfügbarer entfernt und im Dienstplan eingetragen  
 |===
 
 |===
-|ID |
-|Use Case|
-|Vorbedingung| Ein als Employee/Chef registrierter User nutzt das System und drückt auf den Button hinzufügen
-|Geschehen | Eine Übersicht mit Name, Preis, Anzahl, Typ erscheind und wird ausgefüllt vom als Employee/Chef registrierten User.
-Der als Employee/Chef registrierter User drückzt auf den Butto hinzufügen
-|Erwartetes Resultat | Ein neues Item wird im Item-Catalog gespeichert und im Item-Shop angezeigt 
+|ID | **<<AT0210>>**
+|Use Case| **<<UC0210>>**
+|Vorbedingung| ein Mitglied oder gast mit einem Konto sind angemeldet 
+|Geschehen | Drücken aus Konto einsehen und bearebiten ihre Daten
+|Erwartetes Resultat | Daten werden gespeichert und im der Mitgliederverwaltung angezeigt
 |===
 
 |===
-|ID |
+|ID | **<<AT0220>>**
+|Use Case| **<<UC0220>>**
+|Vorbedingung| ein Mitglied mit einem Laufenden Account meldet sich an
+|Geschehen | Drücken aus Meine Bestellungen
+|Erwartetes Resultat | List der eigennen Bestellungen wird angezeigt
+|===
+
+|===
+|ID | **<<AT0230>>**
+|Use Case| **<<UC0230>>**
+|Vorbedingung| ein Mitglied mit einem Laufenden Account meldet sich an
+|Geschehen | Drücken aus Trainingsplan; Bearbeitet die Trainigseinheiten
+|Erwartetes Resultat | Neue Trainings werden gepsichert und im Trainingsplan angezeigt 
+|===
+
+===
+|ID | **<<AT0300>>**
+|Use Case| **<<UC0300>>**
+|Vorbedingung| Ein als Chef oder Thekenkraft registrierter Nutzer ist angemeldet
+|Geschehen | Der Nutzer geht in den Shop und beabeitet Artikel
+|Erwartetes Resultat | Die neuen Artikel werden im Shop angezeigt 
+|===
+
+===
+|ID | **<<AT0310>>**
+|Use Case| **<<UC0310>>**
+|Vorbedingung| Ein als Mitglied/Gast registrierter Nutzer ist und nicht registrierte Nutzer 
+|Geschehen | Der Nutzer geht in den Shop 
+|Erwartetes Resultat | Die neuen Artikel werden angezeigt  
+|===
+
+===
+|ID | **<<AT0320>>**
+|Use Case| **<<UC0320>>**
+|Vorbedingung| Ein als Mitglied registrierter Nutzer
+|Geschehen | Der Nutzer geht in den Shop  und wählt artikel aus und fügt diese in dem Warenkorb
+|Erwartetes Resultat | Die Artikel werden im Warenkorb angezeigt 
+|===
+
+|===
+|ID |  **<<AT0400>>**
+|Use Case| **<<UC0400>>**
+|Vorbedingung| Ein als Mitglied registrierter nutzer hat Artikel im Warenkorb
+|Geschehen | Das MItgliede drückt auf bezahlen
+|Erwartetes Resultat | Die Arikel werden gekauft und im Lagerbestand abgezogen und der Betrag von Kunden abgezogen
+|===
+
+
+|===
+|ID | **<<AT0410>>**
 |Use Case| **<<UC0410>>**
-|Vorbedingung| Ein als Employee/Chef registrierter User nutzt das System und es ist ein Item eines Typs und Namen gespeichert im Item-Catalog
-|Geschehen | Der als Employee/Chef registrierter User erhört die Anzahl der Items im Item-Shop
-|Erwartetes Resultat | Die höhere Anzahl des Items wird gespeichert 
+|Vorbedingung| Ein als Mitglied registrierter nutzer hat Artikel gekauft 
+|Geschehen | Das Mitglied drückt auf Rechnung drucken
+|Erwartetes Resultat | Die Rechung wird im drucker Menü angezeigt 
 |===
 
 |===
-|ID |
-|Use Case| **<<UC0600>>**
+|ID | **<<AT0500>>**
+|Use Case| **<<UC0500>>**
 |Vorbedingung| Ein als Chef registrierter User nutzt das System
-|Geschehen | Ein als Chef registrierter User nutzt das System, gibt die Daten des neuen Mitarbeiters ein und  
-drückt den Button hinzufügen
-|Erwartetes Resultat | Ein neuer Mitarbeiter wird mit seinen Daten gespeichert 
+|Geschehen | Ein als Chef registrierter User drückt Bestellungen einsehen
+|Erwartetes Resultat | Alle Bestllungen werden angezeigt 
+|===
+
+
+|===
+|ID | **<<AT0600>>**
+|Use Case| **<<UC0600>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef und der Trainer drücken auf die auf Trainingsverwaltung und wählen ein Mitglied
+|Erwartetes Resultat | Der Trainingsplan des Mitgliedes wird angezeigt 
+
 |===
 
 
 |===
 |ID |
 |Use Case| **<<UC0610>>**
-|Vorbedingung| Ein als Chef registrierter User nutzt das System und die Mitarbeiterliste ist nicht leer 
-|Geschehen | Ein als Chef registrierter User drückt den Button löschen
-|Erwartetes Resultat | Der Mitabeiter wird aus der Liste entfernt und die Daten gelöscht 
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef oder ein Trainer bearbeitet einen Trainingsplan eines Mitgliedes
+|Erwartetes Resultat | Der Trainingsplan wird aktualisiert und und bei dem Mitgliedern auch angezeigt 
 |===
 
+
 |===
-|ID |
-|Use Case| **<<UC0620>>**
-|Vorbedingung| Ein als Chef registrierter User nutzt das System und die Mitarbeiterliste ist nicht leer
-|Geschehen | Ein als Chef registrierter User drückt den Button bearbeiten
-|Erwartetes Resultat | Die Daten des gewählten Mitarbeiters landen in der Bearbeitungs-Übersicht
+|ID | **<<AT0700>>**
+|Use Case| **<<UC0700>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef oder eine Thekenkraft bearbeitet die daten eines Mitgliedes
+|Erwartetes Resultat | Die neuen daten werden gespeicehrt und in der Mitgliederverwaltung angezeigt 
+|===
+
+
+|===
+|ID | **<<AT0710>>**
+|Use Case| **<<UC0710>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef oder eine Thekenkraft löschen ein Mitglied
+|Erwartetes Resultat | Das Mitglied wird aus der Datenbank gelöscht und kann sich nicht mehr anmelden 
+|===
+
+
+|===
+|ID | **<<AT0720>>**
+|Use Case| **<<UC0720>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Ein Chef oder Thekenkraft erstellt einen Member
+|Erwartetes Resultat | Der neue Member wird in der Mitgliederverwaltung angezeigt und kann sich anmelden  
+|===
+
+
+|===
+|ID | **<<AT0800>>**
+|Use Case| **<<UC0800>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef beantwortet die Urlaubsanfragen 
+|Erwartetes Resultat | Die Mitarbeiter sehen die Antwort des Chefs  
+|===
+
+
+|===
+|ID | **<<AT0810>>**
+|Use Case| **<<UC0810>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Mitarbeiter stellen einen antrag auf Urlaub
+|Erwartetes Resultat | Dem Chef wird der Antrag angezeigt; Der Mitarbeiter sieht den bei sich in der Übersicht  
+|===
+
+
+|===
+|ID | **<<AT0900>>**
+|Use Case| **<<UC0900>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef bearbeitet die Daten eines Mitarbeiters
+|Erwartetes Resultat | Die Daten werden gespeichert und so angezeigt 
+|===
+
+
+|===
+|ID | **<<AT0910>>**
+|Use Case| **<<UC0910>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef will einen neuen Mitarbeiter erstellen
+|Erwartetes Resultat | Ein neuer Mitarbietr wird gepseichert und in der Mitarbeiterverewaltung angezeigt und kann sich anmelden
+|===
+
+
+|===
+|ID | **<<AT0920>>**
+|Use Case| **<<UC0920>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef löscht einen Mitarbeiter
+|Erwartetes Resultat | Der Mitarbieter wird gelöscht oder es kommt eine Meldung, dass das nicht geht 
+|===
+
+
+|===
+|ID | **<<AT1000>>**
+|Use Case| **<<UC1000>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Ein Mitarbeiter oder Chef drückt auf Dienstplan
+|Erwartetes Resultat | Der Dienstplan wird angezeigt
+|===
+
+
+|===
+|ID | **<<AT1010>>**
+|Use Case| **<<UC1010>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef erstellt eine neue Schicht
+|Erwartetes Resultat | Die Schicht wird im Dienstplan angezeigt 
+|===
+
+
+|===
+|ID | **<<AT1020>>**
+|Use Case| **<<UC1020>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef ändert den Dienstplan
+|Erwartetes Resultat | Die neuen Mitarbeiter und Zeiten wirden angezeigt
+|===
+
+
+|===
+|ID | **<<AT1100>>**
+|Use Case| **<<UC1100>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef drückt auf Statistiken 
+|Erwartetes Resultat | Die Übersicht für Statistiken wird angezeigt
+|===
+
+
+|===
+|ID | **<<AT1200>>**
+|Use Case| **<<UC1200>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef ändert die höhe des Rabbats auf fast verfalledne Artikel
+|Erwartetes Resultat | Die änderung wird im Shop angezeigt und beim kauf abgezogen 
+|===
+
+
+|===
+|ID | **<<AT1210>>**
+|Use Case| **<<UC1210>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef änder die Öffnungszeiten
+|Erwartetes Resultat | Die Zeiten werden gespeicehrt und bei zuküntigen Schichtplänen beachet
+|===
+
+
+|===
+|ID | **<<AT1220>>**
+|Use Case| **<<UC1220>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef ändert die der Neuwerbungsprämie
+|Erwartetes Resultat | Das Mitglied dessen Name verwendet wird erhält den neuen Betrag 
+|===
+
+
+|===
+|ID | **<<AT1230>>**
+|Use Case| **<<UC1230>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef änder die höhe der Provision den ein Creator erhält
+|Erwartetes Resultat | Die Creator erhalten mehr Provisio, wenn ihr Code wieder verwendet wird  
+|===
+
+
+|===
+|ID | **<<AT1300>>**
+|Use Case| **<<UC1300>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Der Chef drückt bei einem Creator-Code auf Entfernen
+|Erwartetes Resultat | Der Code wird gelöscht und ist nicht mehr anwendbar
+|===
+
+
+|===
+|ID | **<<AT1310>>**
+|Use Case | **<<UC1310>>**
+|Vorbedingung| Ein Verifizierter User nutzt das System
+|Geschehen | Chef erstellt einen neuen Creator-Code
+|Erwartetes Resultat | Es wird ein neuer Code generiert den Mitglieder beim kauf verwenden können
 |===
 
 == Glossar
@@ -1213,73 +1526,5 @@ Stakeholder essenziell ist, sollten hier aufgeführt werden.
 Insbesondere Begriffe der zu implementierenden Domäne wurden bereits beschrieben, jedoch gibt es meist mehr Begriffe, die einer Beschreibung bedürfen. +
 Beispiel: Was bedeutet "Kunde"? Ein Nutzer des Systems? Der Kunde des Projektes (Auftraggeber)?
 
-[options="header", cols="1, 4"]
-|===
-|Begriff |Beschreibung
-
-|**Abo-Modell (AboPlan)**
-|Das gewählte Abrechnungsintervall für eine Mitgliedschaft (z. B. monatlich oder jährlich). Beeinflusst die Abbuchung der Beiträge und die Vertragslaufzeit.
-
-|**Artikel (Item)**
-|Waren, die im Verkaufsbereich (Theke) angeboten werden (z. B. Getränke, Nahrungsergänzungsmittel). Sie besitzen Eigenschaften wie Bestand, Preis, Mindestmenge und ggf. ein Verfallsdatum.
-
-|**Chef (Inhaber)**
-|Der Auftraggeber und Administrator des Systems mit den höchsten Zugriffsrechten. Er verwaltet globale Einstellungen, Finanzen, Mitarbeiterdaten und das Inventar.
-
-|**Creator-Code**
-|Ein einzigartiger Code, der einem Mitglied zugeordnet ist. Er kann an Dritte weitergegeben werden, um diesen bei der Anmeldung einen Rabatt (Standard: 10%) zu gewähren. Dient der Mitgliederwerbung.
-
-|**Dienstplan (WorkSchedule)**
-|Die Gesamtheit aller Schichten einer Woche. Er regelt die Anwesenheit der Mitarbeiter unter Einhaltung der Besetzungsregeln.
-
-|**Frei-Monat**
-|Eine Option für Mitglieder, die Mitgliedschaft einmal pro Jahr für einen Monat ohne Angabe von Gründen auszusetzen. In diesem Zeitraum ruht die Beitragszahlung; die Vertragslaufzeit verlängert sich entsprechend.
-
-|**Gast (Guest)**
-|Ein nicht-registrierter Benutzer der Webseite oder Besucher des Studios, der noch keinen Mitgliedsvertrag abgeschlossen hat. Gäste können lediglich allgemeine Informationen sehen und Probetrainings vereinbaren.
-
-|**GuV**
-|Abkürzung für Gewinn- und Verlustrechnung. Eine statistische Übersicht für den Chef, die Einnahmen (Mitgliedsbeiträge, Verkäufe) und Ausgaben (Gehälter, Lagerkosten) gegenüberstellt.
-
-|**Kundenkonto (Account)**
-|Ein virtuelles, internes Konto für jedes Mitglied. Hier werden Guthaben (z. B. durch Neuwerbungsprämien oder Einzahlungen) gespeichert. Das Guthaben kann für Einkäufe an der Theke genutzt, aber nicht bar ausgezahlt werden.
-
-|**Mindestmenge (MinimumQuantity)**
-|Ein definierter Grenzwert für den Lagerbestand von Verkaufsartikeln. Wird dieser unterschritten, markiert das System den Artikel ("flagItem") für eine Nachbestellung.
-
-|**Mitglied (Member)**
-|Ein registrierter Kunde mit einem aktiven Vertrag. Mitglieder haben Zugang zum Mitgliederportal, können Trainingspläne einsehen und bargeldlos bezahlen.
-
-|**Neuwerbungsprämie (ReferralBonus)**
-|Ein monetärer Bonus, der einem Mitglied auf seinem Kundenkonto gutgeschrieben wird, wenn durch dessen Anwerbung (oft via Creator-Code) ein neues Mitglied gewonnen wurde.
-
-|**Probetraining (TrialTraining)**
-|Ein einmaliges, kostenloses Training für Gäste, das von einem Trainer betreut wird. Kann online oder vor Ort vereinbart werden.
-
-|**Putzkraft (Cleaner)**
-|Ein Mitarbeiter mit eingeschränkten Rechten, der für Reinigungsschichten (meist nach Ladenschluss) eingeteilt wird.
-
-|**Schicht (Shift)**
-|Ein definierter Zeitblock im Dienstplan. Es wird zwischen regulären Schichten, Eröffnungsschichten ("OpeningShift") und Abschlussschichten ("ClosingShift") unterschieden.
-
-|**SRS**
-|Software Requirement Specifications. Bezeichnet dieses Dokument (Pflichtenheft), das die Anforderungen an die zu entwickelnde Software beschreibt.
-
-|**Thekenkraft (CounterStaff)**
-|Ein Mitarbeiter, zuständig für den Verkaufsbereich, Check-In der Mitglieder und Inventarverwaltung.
-
-|**Trainer**
-|Ein Mitarbeiter, zuständig für die sportliche Betreuung. Erstellt Trainingspläne und führt Probetrainings durch.
-
-|**Trainingsplan (TrainingSchedule)**
-|Eine Zusammenstellung von Übungen, die individuell für ein Mitglied erstellt wird.
-
-|**Übung (Exercise)**
-|Eine spezifische sportliche Aktivität (z. B. "Bankdrücken"), die einer Muskelgruppe zugeordnet ist und als Baustein für Trainingspläne dient.
-
-|**Urlaubsantrag (VacationRequest)**
-|Ein formaler Antrag eines Mitarbeiters auf Abwesenheit, der vom Chef genehmigt oder abgelehnt werden muss.
-
-|**Verkaufsbereich (Counter)**
-|Der physische Bereich im Studio (Theke) sowie der digitale Bereich im System, in dem Waren verkauft und verwaltet werden.
-|===
+== Offene Punkte
+Offene Punkte werden entweder direkt in der Spezifikation notiert. Wenn das Pflichtenheft zum finalen Review vorgelegt wird, sollte es keine offenen Punkte mehr geben.
