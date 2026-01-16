@@ -1525,73 +1525,70 @@ Sämtliche Begriffe, die innerhalb des Projektes verwendet werden und deren geme
 Stakeholder essenziell ist, sollten hier aufgeführt werden.
 Insbesondere Begriffe der zu implementierenden Domäne wurden bereits beschrieben, jedoch gibt es meist mehr Begriffe, die einer Beschreibung bedürfen. +
 Beispiel: Was bedeutet "Kunde"? Ein Nutzer des Systems? Der Kunde des Projektes (Auftraggeber)?
+== Glossar
+Sämtliche Begriffe, die innerhalb des Projektes verwendet werden und deren gemeinsames Verständnis aller beteiligten Stakeholder essenziell ist.
 
-=== Klassen und Enumerationen
-Dieser Abschnitt stellt eine Vereinigung von Glossar und der Beschreibung von Klassen/Enumerationen dar. Jede Klasse und Enumeration wird in Form eines Glossars textuell beschrieben. Zusätzlich werden eventuelle Konsistenz- und Formatierungsregeln aufgeführt.
+[NOTE]
+====
+Einige Begriffe werden im Projektalltag selbstverständlich genutzt, können aber je nach Hintergrund unterschiedlich verstanden werden. Dieses Glossar definiert die im Projekt **ProFit** gültige Bedeutung.
+
+*Beispiel:* Der Begriff "Schicht" könnte von einem Mitarbeiter als "meine persönliche Arbeitszeit" verstanden werden. Im Systemkontext (und für den Chef) bezeichnet "Schicht" jedoch den gesamten Zeitblock im Dienstplan, der mit mehreren Personen besetzt ist.
+====
 
 [options="header", cols="1, 4"]
 |===
-|Klasse/Enumeration |Beschreibung
+|Begriff |Erklärung / Fachliche Bedeutung
 
-|**User**
-|Ist die Darstellung einer realen Person (Basisklasse).
+|**Abo-Modell**
+|Bezeichnet die vertragliche Vereinbarung über die Laufzeit und das Abrechnungsintervall der Mitgliedschaft (z. B. monatlich oder jährlich). Es bestimmt, wann Beiträge fällig werden.
 
-|**Registered User**
-|Ist die Repräsentation einer realen Person, welche fest im System gespeichert ist und sich authentifizieren kann.
+|**Artikel**
+|Waren, die physisch an der Theke verkauft werden (z. B. Proteinriegel, Shakes). Im Gegensatz zu "Mitgliedschaften" handelt es sich um Lagerware.
 
-|**Member**
-|Ist ein als "Mitglied" registrierter User mit Kundenkonto und Trainingsplan.
+|**Besucher (Gast)**
+|Eine Person, die die Webseite besucht oder das Studio betritt, aber (noch) keinen Mitgliedsvertrag hat. Ein Gast hat im System nur sehr eingeschränkte Rechte (z. B. Probetraining buchen).
 
 |**Chef**
-|Ist ein als "Chef" registrierter User mit erweiterten Rechten (Admin).
+|Der Inhaber des Fitnessstudios ProFit. Er ist der Auftraggeber des Softwareprojekts und die einzige Person mit vollen administrativen Rechten (Systemkonfiguration, Finanzdaten).
 
-|**Employee**
-|Ist ein als "Mitarbeiter" registrierter User (Trainer, Thekenkraft, Putzkraft).
+|**Creator-Code**
+|Ein Marketing-Instrument. Jedes Mitglied erhält einen individuellen Code. Wird dieser Code von einem Neukunden bei der Anmeldung angegeben, erhält der Werber eine Prämie (Guthaben) und der Neukunde einen Rabatt.
 
-|**ItemCatalog**
-|Ist eine Gruppierung von verkäuflichen Artikeln (`Items`).
+|**Dienstplan**
+|Die grafische Übersicht aller Schichten einer Woche. Er dient der Personalplanung und muss sicherstellen, dass zu jeder Öffnungszeit die Mindestbesetzung (Trainer + Thekenkraft) erfüllt ist.
 
-|**Item**
-|Repräsentiert einen einzelnen Gegenstand (Produkt) im Online-Katalog.
+|**Frei-Monat**
+|Ein vertragliches Recht eines Mitglieds, die Beitragszahlung für einen Monat pro Jahr auszusetzen. Dies ist keine Kündigung; die Vertragslaufzeit verlängert sich um diesen Monat.
 
-|**Food**
-|Kategorie für essbare Produkte im Online-Shop (z. B. Riegel, Shakes).
+|**Guthaben (Kundenkonto)**
+|Ein virtueller Geldbetrag, der einem Mitglied im System zugeordnet ist. Es kann durch Prämien (Creator-Code) oder Einzahlungen erhöht werden. **Wichtig:** Dieses Guthaben kann nur für den Verzehr/Kauf im Studio genutzt werden, eine Barauszahlung ist nicht vorgesehen.
 
-|**Others**
-|Kategorie für Artikel im Online-Shop, die kein Essen sind (z. B. Handtücher, Zubehör).
+|**Mitglied**
+|Eine Person, die einen gültigen Vertrag mit dem Fitnessstudio abgeschlossen hat. Mitglieder haben einen Login für das Portal und können das Studio nutzen.
 
-|**Inventory**
-|Stellt das Lager dar und verwaltet den physischen Bestand der Items aus dem `ItemCatalog`.
+|**Mindestbestand**
+|Ein kritischer Schwellenwert im Lager. Fällt der Vorrat eines Artikels unter diesen Wert, muss das System den Chef oder die Thekenkraft aktiv warnen ("Flagging"), damit nachbestellt wird.
 
-|**Inventory-Item**
-|Stellt die konkrete Anzahl (Menge) eines verfügbaren Items im `Inventory` dar.
+|**Neuwerbungsprämie**
+|Der Geldbetrag, der einem werbenden Mitglied gutgeschrieben wird, wenn sein Creator-Code erfolgreich eingelöst wurde.
 
-|**Vacation**
-|Der Urlaub, den Mitarbeiter beantragen können (Zeitraum und Status).
+|**Probetraining**
+|Ein einmaliges, kostenfreies Training für Interessenten (Gäste), das zwingend von einem Trainer betreut werden muss. Es dient der Neukundengewinnung.
 
-|**Exercise**
-|Steht für einzelne Übungen (z. B. Bankdrücken), die man im Training machen kann.
+|**Schicht**
+|Ein definierter Zeitblock im Dienstplan (z. B. "Frühschicht 08:00–14:00"). Eine Schicht gilt im System erst als "gültig", wenn sie vollständig besetzt ist (genug Personal zugewiesen wurde).
 
-|**Training Day**
-|Repräsentiert die Wochentage, an denen das Studio geöffnet ist und Training stattfindet.
+|**Thekenkraft**
+|Mitarbeiterrolle mit Fokus auf Verkauf und Mitgliederbetreuung am Empfang. Darf Kassiervorgänge durchführen und Bestände prüfen, aber keine Trainingspläne schreiben.
 
-|**Trainingsplan**
-|Ordnet einem Mitglied Übungen zu (Wann ist welches Training?).
+|**Trainer**
+|Mitarbeiterrolle mit Fokus auf Sport. Darf Trainingspläne erstellen und Probetrainings durchführen.
 
-|**Trainingsplanitem**
-|Ein Eintrag im Trainingsplan: Verknüpft eine Übung (`Exercise`) mit Gewicht, Wiederholungen und Tag.
+|**Übung**
+|Die kleinste Einheit im sportlichen Bereich (z. B. "Kniebeuge"). Trainingspläne setzen sich aus einer Liste von Übungen zusammen.
 
-|**TrialTraining**
-|Ein Probetraining für Gäste, um das Fitnessstudio an einem Tag zu testen.
-
-|**Shift**
-|Eine Dienstschicht im Dienstplan, der Mitarbeiter und eine Zeitspanne zugeordnet sind.
-
-|**AboPlan**
-|(Enumeration) Definiert die Länge und Art eines Abos (z. B. `MONTHLY`, `YEARLY`).
-
-|**CreatorCode**
-|Möglichkeit für den Chef, wichtigen Mitgliedern eine Beteiligung an Neuanmeldungen/Bestellungen zu geben (Rabatt-Code).
+|**Urlaubsantrag**
+|Ein formaler Prozess im System: Ein Mitarbeiter blockiert einen Zeitraum. Dieser Zeitraum gilt erst als "Urlaub", wenn der Chef ihn im System bestätigt hat.
 |===
 
 == Offene Punkte
